@@ -24,6 +24,7 @@
   "gitHead": "8d10a6b5cab378747acb5d26a454c6d9f6edc048",
   "dependencies": {
     "socket.io-client": "~0.9.11",
-    "serialport": "~1.1.0"
+    "serialport": "~1.1.0",
+    "cosm": "0.0.3"
   }
 }

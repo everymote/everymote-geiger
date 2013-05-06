@@ -1,4 +1,10 @@
 "use strict";
+var config = require('./config');
+  var cosm = require('cosm'),
+        client = new cosm.Cosm(config.cosm.apiKey),
+        feed = new cosm.Feed(cosm, {id: config.cosm.feed}),
+        streamCpm = new cosm.Datastream(client, feed, {id: 2}),
+        streamSv = new cosm.Datastream(client, feed, {id: 3});
 
 var arduinoSerialPort = '/dev/tty.usbmodemfd1231';
 
@@ -19,6 +25,8 @@ var lisener = function(thing){
 			if(thing.socket){
 				thing.socket.emit('updateInfo', "CPM: " + data.cpm + " - " + data.radiationValue + " uSv/h");
 			}
+			streamCpm.addPoint(data.cpm);
+			streamSv.addPoint(data.radiationValue);
 		}
 		catch (ex)
 		{
