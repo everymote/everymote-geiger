@@ -153,11 +153,11 @@ void writeAsJSON(){
 }
 
 void countPulse(){
-  detachInterrupt(0);
+  detachInterrupt(1);
   count++;
   while(digitalRead(2)==0){
   }
-  attachInterrupt(0,countPulse,FALLING);
+  attachInterrupt(1,countPulse,FALLING);
 }
 
 void ledVar(int value){

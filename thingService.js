@@ -1,6 +1,6 @@
 "use strict";
 
-var arduinoSerialPort = '/dev/tty.usbmodem1431';
+var arduinoSerialPort = '/dev/tty.usbmodemfd1231';
 
 var serialport = require('serialport');
 var serialPort = new serialport.SerialPort(arduinoSerialPort,
